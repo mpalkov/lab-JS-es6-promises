@@ -115,9 +115,7 @@ const step7 = new obtainInstruction("brusselsSprouts", 7);
 
 Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
   .then((values) => {
-    console.log(values);
     values.forEach(element => {
-      console.log("element ", element);
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
     });
   })
