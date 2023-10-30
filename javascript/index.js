@@ -104,7 +104,7 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-const step0 = obtainInstruction("brusselsSprouts", 0);
+/* const step0 = obtainInstruction("brusselsSprouts", 0);
 const step1 = obtainInstruction("brusselsSprouts", 1);
 const step2 = obtainInstruction("brusselsSprouts", 2);
 const step3 = obtainInstruction("brusselsSprouts", 3);
@@ -125,4 +125,27 @@ Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
   })
   .catch((error) => {
     console.error(error);
-  })
+  }) */
+
+  // BONUS 2.2
+  // don't create each promise by hand.
+  let step = [];
+  const createBrussellsPromises = () => {
+    for (let i = 0; i < brusselsSprouts.length; i++) {
+      step[i] = obtainInstruction("brusselsSprouts", i);
+    }
+    Promise.all([step[0], step[1], step[2], step[3], step[4], step[5], step[6], step[7]])
+      .then((values) => {
+        values.forEach(element => {
+          document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
+        });
+      })
+      .then(() => {
+        document.querySelector("#brusselsSprouts").innerHTML += `<li><i>All</i> brussels sprouts are ready!</li>`;
+        document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+  createBrussellsPromises();
