@@ -104,14 +104,14 @@ async function makeBroccoli() {
 makeBroccoli();
 
 // Bonus 2 - Promise all
-const step0 = new obtainInstruction("brusselsSprouts", 0);
-const step1 = new obtainInstruction("brusselsSprouts", 1);
-const step2 = new obtainInstruction("brusselsSprouts", 2);
-const step3 = new obtainInstruction("brusselsSprouts", 3);
-const step4 = new obtainInstruction("brusselsSprouts", 4);
-const step5 = new obtainInstruction("brusselsSprouts", 5);
-const step6 = new obtainInstruction("brusselsSprouts", 6);
-const step7 = new obtainInstruction("brusselsSprouts", 7);
+const step0 = obtainInstruction("brusselsSprouts", 0);
+const step1 = obtainInstruction("brusselsSprouts", 1);
+const step2 = obtainInstruction("brusselsSprouts", 2);
+const step3 = obtainInstruction("brusselsSprouts", 3);
+const step4 = obtainInstruction("brusselsSprouts", 4);
+const step5 = obtainInstruction("brusselsSprouts", 5);
+const step6 = obtainInstruction("brusselsSprouts", 6);
+const step7 = obtainInstruction("brusselsSprouts", 7);
 
 Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
   .then((values) => {
