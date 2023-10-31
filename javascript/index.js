@@ -129,12 +129,14 @@ Promise.all([step0, step1, step2, step3, step4, step5, step6, step7])
 
   // BONUS 2.2
   // don't create each promise by hand.
-  let step = [];
+  let steps = [];
   const createBrussellsPromises = () => {
     for (let i = 0; i < brusselsSprouts.length; i++) {
-      step[i] = obtainInstruction("brusselsSprouts", i);
+      steps[i] = obtainInstruction("brusselsSprouts", i);
     }
-    Promise.all([step[0], step[1], step[2], step[3], step[4], step[5], step[6], step[7]])
+    // Promise.all([steps[0], steps[1], steps[2], steps[3], steps[4], steps[5], steps[6], steps[7]])
+    // Promise.all is taking an array of promises as argument, so you don't really have to do it like the above line.
+    Promise.all(steps)
       .then((values) => {
         values.forEach(element => {
           document.querySelector("#brusselsSprouts").innerHTML += `<li>${element}</li>`;
